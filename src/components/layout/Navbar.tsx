@@ -1,7 +1,6 @@
 import Link from "next/link";
-import Logo from "../../public/Logo";
-import { MenuList } from "@/constants/MenuList";
-import ImgComp from "./ImgComp";
+import { Logo, ImgComp } from "@/components/ui";
+import { menuItems } from "@/config/navigation";
 
 const Navbar = () => {
   return (
@@ -13,8 +12,11 @@ const Navbar = () => {
           <Logo />
         </Link>
         {/* MENU ITEMS */}
-        {MenuList.map((item) => (
-          <div key={item.id} className="xxl:justify-normal flex justify-center">
+        {menuItems.map((item) => (
+          <div
+            key={item.id}
+            className="xxl:justify-normal flex justify-center font-bold"
+          >
             <Link href={item.to} className={item.class}>
               <span className={item.iconClass}>{item.icon}</span>
               <span className="xxl:inline hidden">{item.title}</span>
@@ -28,8 +30,8 @@ const Navbar = () => {
           <div className="xxl:size-10 relative size-12 overflow-hidden rounded-full">
             <ImgComp
               src="imgs/pp.jpg"
-              w={50}
-              h={50}
+              w={90}
+              h={90}
               alt="Profile Picture"
               tr={true}
             />

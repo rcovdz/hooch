@@ -23,4 +23,5 @@ const Logo = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default Logo;

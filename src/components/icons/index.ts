@@ -15,6 +15,9 @@ export { default as TypeToast } from "./post/TypeToast";
 
 // Share Icons
 export { default as PhotoIcon } from "./share/PhotoIcon";
-export { default as PollIcon } from "./share/PollIcon";
 export { default as VideoIcon } from "./share/VideoIcon";
 export { default as VisibilityIcon } from "./share/VisibilityIcon";
+export { default as CloseIcon } from "./share/CloseIcon";
+export { default as WideIcon } from "./share/WideIcon";
+export { default as SquareIcon } from "./share/SquareIcon";
+export { default as OriginalIcon } from "./share/OriginalIcon";

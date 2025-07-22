@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-export interface NavigationItem {
+export interface INavigation {
   id: number;
   title: string;
   to: string;
   icon: ReactNode;
-  class: string;
+  contClass: string;
   iconClass: string;
 }
 

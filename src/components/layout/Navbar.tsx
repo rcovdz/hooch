@@ -1,31 +1,28 @@
 import Link from "next/link";
 import { Logo, ImgComp } from "@/components/ui";
-import { menuItems } from "@/config/navigation";
+import { menuActions } from "@/config/navigation";
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 flex h-full flex-col justify-between pt-4 pb-8">
-      {/* MENU */}
+    <nav className="sticky top-0 flex h-full flex-col justify-between">
       <div className="flex flex-col gap-5">
-        {/* LOGO */}
         <Link href="/" className="xs:px-4 xxl:px-2">
           <Logo />
         </Link>
-        {/* MENU ITEMS */}
-        {menuItems.map((item) => (
+        {menuActions.map(({ id, to, contClass, iconClass, icon, title }) => (
           <div
-            key={item.id}
+            key={id}
             className="xxl:justify-normal flex justify-center font-bold"
           >
-            <Link href={item.to} className={item.class}>
-              <span className={item.iconClass}>{item.icon}</span>
-              <span className="xxl:inline hidden">{item.title}</span>
+            <Link href={to} className={contClass}>
+              <span className={iconClass}>{icon}</span>
+              <span className="xxl:inline hidden">{title}</span>
             </Link>
           </div>
         ))}
       </div>
       {/* USER */}
-      <div className="xxl:justify-between xxl:hover:bg-menuHover xxl:p-3 flex items-center justify-center rounded-full">
+      <div className="xxl:justify-between xxl:hover:bg-menuHover xxl:p-3 flex items-center justify-center gap-5 rounded-full">
         <div className="flex items-center gap-2">
           <div className="xxl:size-10 relative size-12 overflow-hidden rounded-full">
             <ImgComp
@@ -37,7 +34,7 @@ const Navbar = () => {
             />
           </div>
           <div className="xxl:flex hidden flex-col">
-            <span className="leading-4">Jane Doe</span>
+            <span className="leading-4 font-bold">Jane Doe</span>
             <span className="leading-4">@janedoe</span>
           </div>
         </div>

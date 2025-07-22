@@ -1,5 +1,6 @@
-import { JSX, SVGProps } from "react";
+import React, { JSX, SVGProps } from "react";
 
+// React.FC includes key and ref such as "JSX.IntrinsicAttributes"
 const PhotoIcon = (
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
 ) => (

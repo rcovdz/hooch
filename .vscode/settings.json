@@ -12,13 +12,7 @@
   "prettier.jsxSingleQuote": false,
   "prettier.trailingComma": "es5",
   "prettier.arrowParens": "always",
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
-  "[svg]": {
-    "editor.defaultFormatter": "jock.svg"
-  }
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "vscode.css-language-features" },
+  "[svg]": { "editor.defaultFormatter": "jock.svg" }
 }

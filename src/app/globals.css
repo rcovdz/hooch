@@ -6,10 +6,6 @@
   --font-color: #ffffff;
 }
 
-:root:has(.no-doc-scroll) {
-  overflow: hidden;
-}
-
 body {
   background: var(--background);
   color: var(--font-color);

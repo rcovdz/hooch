@@ -1,8 +1,21 @@
 import { TypeToast } from "@/components/icons";
-import { ImgComp } from "@/components/ui";
+import { ImgComp, PostImg, PostVideo } from "@/components/ui";
 import { PostInteractions } from "./";
+import { imagekit } from "@/lib/utils";
+import { IDetailResponse } from "@/types/mediaDetails";
 
-const Post = () => {
+const Post = async () => {
+  const getFileDetails = async (fieldId: string): Promise<IDetailResponse> => {
+    return new Promise((resolve, reject) => {
+      imagekit.getFileDetails(fieldId, function (err, res) {
+        if (err) reject(err);
+        else resolve(res as IDetailResponse);
+      });
+    });
+  };
+
+  const fileDetails = await getFileDetails("687fe3cc5c7cd75eb85de61c");
+
   return (
     <div className="text-font bg-post rounded-xl p-4">
       {/* POST TYPE */}
@@ -41,13 +54,28 @@ const Post = () => {
             nam repudiandae a deserunt porro alias sint. Expedita eum error
             sapiente est nemo.
           </p>
-          <ImgComp
-            src="/imgs/post.jpg"
-            w={600}
-            h={600}
-            alt="Post Image"
-            className="my-3 rounded-md"
-          />
+          {fileDetails && fileDetails.fileType === "image" ? (
+            <div className="my-3 overflow-hidden rounded-md">
+              <PostImg
+                src={fileDetails.url}
+                w={fileDetails.height}
+                h={fileDetails.height}
+                alt="Post Image"
+                initialSensitive={fileDetails.customMetadata?.sensitive}
+                className={`rounded-md`}
+              />
+            </div>
+          ) : (
+            <div className="my-3 overflow-hidden rounded-md">
+              <PostVideo
+                src={fileDetails.url}
+                w={fileDetails.width}
+                h={fileDetails.height}
+                alt="Post Video"
+                className={`rounded-md`}
+              />
+            </div>
+          )}
           <PostInteractions />
         </div>
       </div>

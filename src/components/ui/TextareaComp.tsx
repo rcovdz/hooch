@@ -21,6 +21,7 @@ const TextareaComp = (props: TextareaType) => {
   useEffect(() => {
     window.addEventListener("resize", resize);
 
+    // ensures the textarea starts with the correct height based on its content
     resize();
 
     return () => {
@@ -36,7 +37,6 @@ const TextareaComp = (props: TextareaType) => {
 
   return (
     <textarea
-      // pass all props except for className and onInput
       {...rest}
       ref={textareaRef}
       className={combinedClassName}

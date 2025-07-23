@@ -22,7 +22,7 @@ const Navbar = () => {
         ))}
       </div>
       {/* USER */}
-      <div className="xxl:justify-between xxl:hover:bg-menuHover xxl:p-3 flex items-center justify-center gap-5 rounded-full">
+      <div className="xxl:justify-between xxl:hover:bg-menuHover xxl:p-3 flex w-full items-center justify-center gap-5 rounded-full">
         <div className="flex items-center gap-2">
           <div className="xxl:size-10 relative size-12 overflow-hidden rounded-full">
             <ImgComp

@@ -1,7 +1,6 @@
 import {
   HomeIcon,
   LikesIcon,
-  MessagesIcon,
   NotificationsIcon,
   PostIcon,
   ProfileIcon,
@@ -29,14 +28,6 @@ export const menuActions: INavigation[] = [
   },
   {
     id: 3,
-    title: "Messages",
-    to: "/messages",
-    icon: <MessagesIcon />,
-    contClass: containerClass,
-    iconClass: iconClass,
-  },
-  {
-    id: 4,
     title: "Likes",
     to: "/likes",
     icon: <LikesIcon />,
@@ -44,7 +35,7 @@ export const menuActions: INavigation[] = [
     iconClass: iconClass,
   },
   {
-    id: 5,
+    id: 4,
     title: "Profile",
     to: "/profile",
     icon: <ProfileIcon />,
@@ -52,7 +43,7 @@ export const menuActions: INavigation[] = [
     iconClass: iconClass,
   },
   {
-    id: 6,
+    id: 5,
     title: "Post",
     to: "/post",
     icon: <PostIcon />,

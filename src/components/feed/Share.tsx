@@ -4,10 +4,11 @@ import { shareAction } from "@/actions";
 import { ImgComp, TextareaComp } from "@/components/ui";
 import { shareActions } from "@/config/share";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import ImageEditor from "./ImageEditor";
 
 const Share = () => {
+  const [acceptType, setAcceptType] = useState<string>("image/*,video/*");
   const [media, setMedia] = useState<File | null>(null);
   const [isEditorOpen, setEditorOpen] = useState(false);
   const [settings, setSettings] = useState<{
@@ -17,11 +18,19 @@ const Share = () => {
     type: "original",
     sensitive: false,
   });
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
 
   const handleMedia = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setMedia(e.target.files[0]);
     }
+  };
+
+  const handleClearMedia = () => {
+    setMedia(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+    if (videoInputRef.current) videoInputRef.current.value = "";
   };
 
   const previewURL = media ? URL.createObjectURL(media) : null;
@@ -46,7 +55,7 @@ const Share = () => {
           />
         </div>
         {/* IMG PREVIEW */}
-        {previewURL && (
+        {media?.type.includes("image") && previewURL && (
           <div className="relative overflow-hidden rounded-xl">
             <Image
               src={previewURL}
@@ -60,6 +69,23 @@ const Share = () => {
               onClick={() => setEditorOpen(true)}
             >
               Edit
+            </div>
+            <div
+              className="absolute top-2 right-2 cursor-pointer rounded-full bg-[var(--background)] px-3 py-1 text-sm font-bold opacity-80 transition ease-in hover:opacity-100"
+              onClick={handleClearMedia}
+            >
+              X
+            </div>
+          </div>
+        )}
+        {media?.type.includes("video") && previewURL && (
+          <div className="relative overflow-hidden rounded-xl">
+            <video src={previewURL} controls></video>
+            <div
+              className="absolute top-2 right-2 cursor-pointer rounded-full bg-[var(--background)] px-3 py-1 text-sm font-bold opacity-80 transition ease-in hover:opacity-100"
+              onClick={handleClearMedia}
+            >
+              X
             </div>
           </div>
         )}
@@ -79,6 +105,8 @@ const Share = () => {
           onChange={handleMedia}
           className="hidden"
           id="file"
+          ref={fileInputRef}
+          accept={acceptType}
         />
         <div className="flex gap-2 rounded-xl">
           {shareActions.map(({ id, icon, label }) =>
@@ -86,6 +114,17 @@ const Share = () => {
               <label
                 key={id}
                 htmlFor="file"
+                onClick={() => setAcceptType("image/*")}
+                className="bg-post flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl p-2"
+              >
+                {icon}
+                <span className="hidden font-semibold md:flex">{label}</span>
+              </label>
+            ) : id === 2 ? (
+              <label
+                key={id}
+                htmlFor="file"
+                onClick={() => setAcceptType("video/*")}
                 className="bg-post flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl p-2"
               >
                 {icon}

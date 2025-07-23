@@ -1,20 +1,6 @@
 "use server";
 
-import ImageKit from "imagekit";
-
-const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
-const privateKey = process.env.PRIVATE_KEY;
-const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
-
-if (!publicKey || !privateKey || !urlEndpoint) {
-  throw new Error("Missing required ImageKit environment variables.");
-}
-
-const imagekit = new ImageKit({
-  publicKey,
-  privateKey,
-  urlEndpoint,
-});
+import { imagekit } from "@/lib/utils";
 
 export const shareAction = async (
   formData: FormData,
@@ -32,9 +18,11 @@ export const shareAction = async (
       file: buffer,
       fileName: file.name,
       folder: "/uploads",
-      transformation: {
-        pre: transformation,
-      },
+      ...(file.type.includes("image") && {
+        transformation: {
+          pre: transformation,
+        },
+      }),
       customMetadata: {
         sensitive: settings.sensitive,
       },

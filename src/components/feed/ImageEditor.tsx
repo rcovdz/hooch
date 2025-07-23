@@ -32,6 +32,7 @@ const ImageEditor = ({
   };
 
   const handleSensitive = (sensitive: boolean) => {
+    setLoading(true);
     setSettings((prev) => ({ ...prev, sensitive }));
   };
   return (

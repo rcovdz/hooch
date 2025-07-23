@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <div className="text-font flex justify-between gap-2 font-bold">
         <Link
           className="border-primary flex flex-1 items-center justify-center rounded-[15px] border-b-2 bg-white p-3"
@@ -20,6 +20,6 @@ export default function Home() {
       </div>
       <Share />
       <Feed />
-    </div>
+    </>
   );
 }

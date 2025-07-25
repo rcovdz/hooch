@@ -6,6 +6,8 @@ export { default as NotificationsIcon } from "./navigation/NotificationsIcon";
 export { default as PostIcon } from "./navigation/PostIcon";
 export { default as ProfileIcon } from "./navigation/ProfileIcon";
 export { default as SearchIcon } from "./navigation/SearchIcon";
+export { default as MobileSearchIcon } from "./navigation/MobileSearchIcon";
+export { default as BuzzIcon } from "./navigation/BuzzIcon";
 export { default as DotsIcon } from "./navigation/DotsIcon";
 
 // Post Icons

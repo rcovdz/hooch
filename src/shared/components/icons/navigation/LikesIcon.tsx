@@ -1,8 +1,6 @@
-import { JSX, SVGProps } from "react";
+import { SVGProps } from "react";
 
-const LikesIcon = (
-  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
-) => (
+const LikesIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 27 27"
     fill="none"

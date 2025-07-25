@@ -24,10 +24,10 @@ export default function RootLayout({
           <section className="xs:px-4 xxl:px-8 px-2">
             <Navbar />
           </section>
-          <section className="border-border xs:py-4 xxl:pt-8 flex-1 px-2 lg:min-w-[37.5rem]">
+          <section className="border-border xs:py-4 xxl:pt-8 flex-1 px-2 xl:min-w-[37.5rem]">
             {children}
           </section>
-          <section className="ml-4 hidden flex-1 py-5 md:ml-8 lg:flex">
+          <section className="xxl:mx-4 mx-2 hidden flex-1 xl:flex">
             <HighlightsBar />
           </section>
         </main>

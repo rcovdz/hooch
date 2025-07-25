@@ -1,6 +1,6 @@
-import { JSX, SVGProps } from "react";
+import { SVGProps } from "react";
 
-const HomeIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
+const HomeIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 15 15"
     fill="none"

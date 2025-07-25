@@ -6,6 +6,10 @@
   --font-color: #ffffff;
 }
 
+html {
+  @apply no-scrollbar
+}
+
 body {
   background: var(--background);
   color: var(--font-color);

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Navbar, HighlightsBar } from "@/components/layout";
+import { Navbar } from "@/features/navigation";
+import { HighlightsBar } from "@/shared/components/layout";
 
 export const metadata: Metadata = {
   title: "hoO.cH",
@@ -14,15 +15,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+      />
       <body>
-        <main className="xxl:max-w-screen-xxl mx-auto flex max-w-screen-md justify-around lg:max-w-screen-lg xl:max-w-screen-xl">
-          <section className="xxl:p-12 h-dvh px-1 pt-9 pb-12 sm:px-4">
+        <main className="xxl:max-w-screen-xxl xs:flex-row relative mx-auto flex max-w-screen-md flex-col-reverse justify-around xl:max-w-screen-xl">
+          <section className="xs:px-4 xxl:px-8 px-2">
             <Navbar />
           </section>
-          <section className="no-scrollbar border-border h-dvh flex-1 overflow-y-scroll px-2 py-8 lg:min-w-[37.5rem]">
+          <section className="border-border xs:py-4 xxl:pt-8 flex-1 px-2 lg:min-w-[37.5rem]">
             {children}
           </section>
-          <section className="ml-4 hidden h-dvh flex-1 lg:flex xl:ml-8">
+          <section className="ml-4 hidden flex-1 py-5 md:ml-8 lg:flex">
             <HighlightsBar />
           </section>
         </main>

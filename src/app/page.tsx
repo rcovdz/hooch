@@ -1,25 +1,14 @@
-import { Feed, Share } from "@/components/feed";
-import Link from "next/link";
+import { Feed, Share } from "@/features/feed";
+import { Topbar } from "@/features/navigation";
 
 export default function Home() {
   return (
     <>
-      <div className="text-font flex justify-between gap-2 font-bold">
-        <Link
-          className="border-primary flex flex-1 items-center justify-center rounded-[15px] border-b-2 bg-white p-3"
-          href="/"
-        >
-          Feed
-        </Link>
-        <Link
-          className="flex flex-1 items-center justify-center rounded-[15px] border-b-2 bg-white p-3"
-          href="/"
-        >
-          Mates
-        </Link>
+      <Topbar />
+      <div className="xs:pt-0 xs:pb-0 pt-28 pb-18">
+        <Share />
+        <Feed />
       </div>
-      <Share />
-      <Feed />
     </>
   );
 }

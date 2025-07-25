@@ -1,1 +1,1 @@
-export * from "./share.actions";
+export * from "../features/feed/actions/share.actions";
